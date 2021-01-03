@@ -25,7 +25,7 @@ SECRET_KEY = 'j6q236zq77hvzt!tam@0a%&kr*y)q2=_kby7r6el#laqatjo20'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,6 +51,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'web_service.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}
 
 TEMPLATES = [
     {
