@@ -2,9 +2,6 @@ from transformers import BertTokenizerFast, BertForSequenceClassification
 from transformers import pipeline
 from .serializers import InputJsonSerializer
 
-# config = AutoConfig.from_pretrained("/content/drive/MyDrive/new_parsebert/config.json", local_files_only=True)
-# tokenizer = AutoTokenizer.from_pretrained("HooshvareLab/bert-fa-base-uncased")
-# model = BertForSequenceClassification.from_pretrained('/content/drive/MyDrive/new_parsebert/')
 
 class engine:
 	def __init__(self):
@@ -17,6 +14,12 @@ class engine:
 	def predict(self, _input):
 		text = _input['docBody']
 		return [item['score'] for item in self.pipeline(text)[0]]
+
+	def predict_batch(self, _input_list):
+		texts_list = [item['docBody'] for item in _input_list]
+		probs = [[item[0]['score'], item[1]['score']] for item in self.pipeline(texts_list)]
+		return probs
+
 
 if __name__=='__main__':
 	eng = engine()
