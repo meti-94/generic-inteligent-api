@@ -19,6 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 LANG = os.environ.get('language')
 BATCH_SIZE = int(os.environ.get('batch_size'))
+DEVICE = os.environ.get('device', None)
 
 
 

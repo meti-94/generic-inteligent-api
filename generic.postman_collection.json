@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "c312aeb8-657c-4a72-b3c0-26f22e78ed04",
+		"name": "InustlDetection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "single input",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/detect/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"detect",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "batch_input",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}, {\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}, {\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}, {\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}, {\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}, {\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}, {\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}, {\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}, {\"lang\": \"fa\",\"docType\": \"33\",\"docTitle\": \"\",\"docBody\":\"این یک نظر آزمایشی برای سنجش کارایی سرویس است\",\"docSummary\": \"this is doc Summary\",\"docTags\": [\"tag1\", \"teg2\"]}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/detect_batch/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"detect_batch",
+						""
+					],
+					"query": [
+						{
+							"key": "test",
+							"value": "12",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "docBody",
+			"value": "این یک بدنه درخواست برای نمونه است"
+		}
+	]
+}

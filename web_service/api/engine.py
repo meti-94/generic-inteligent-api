@@ -1,6 +1,12 @@
 from transformers import BertTokenizerFast, BertForSequenceClassification
 from transformers import pipeline
 from .serializers import InputJsonSerializer
+from django.conf import settings
+device = settings.DEVICE
+if device!=None:
+	device==int(device)
+else:
+	device=-1
 
 
 class engine:
@@ -8,7 +14,8 @@ class engine:
 		self.model = BertForSequenceClassification.from_pretrained('api/files/sentiment_pipeline/')
 		self.tokenizer = BertTokenizerFast.from_pretrained('api/files/sentiment_pipeline/')
 		self.pipeline = pipeline("sentiment-analysis",return_all_scores=True,  
-								 model=self.model, tokenizer=self.tokenizer)
+								 model=self.model, tokenizer=self.tokenizer,
+								 device=device)
 
 
 	def predict(self, _input):
